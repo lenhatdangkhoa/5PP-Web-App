@@ -1,8 +1,6 @@
 "use client"
 import React from "react"
-import styles from "./LoginButton.module.css"
-
 
 export default function LoginButton() {
-    return <button className={styles.login} onClick={() => console.log("Logging In")}>Log In</button>
+    return <button className="btn btn-secondary" onClick={() => console.log("Logging In")}>Log In</button>
 }
