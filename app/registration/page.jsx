@@ -1,9 +1,17 @@
 import React from "react"
-import RegistrationLayout from "../components/RegistrationLayout"
+import RegistrationLayout from "../components/Registrations/RegistrationLayout"
 
-export default function registrationPage() {
-    return <div> 
+export default async function registrationPage() {
+    const res = await fetch("https://jsonplaceholder.typicode.com/users",
+        { cache: "no-store" })
+    const users = await res.json()
+
+    return <div>
         <RegistrationLayout />
         <h1>Hello World</h1>
+        <p>{new Date().toLocaleTimeString()}</p>
+        <ul>
+            {users.map(user => <li key={user.id}>{user.name}</li>)}
+        </ul>
     </div>
 }
