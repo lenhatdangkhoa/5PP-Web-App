@@ -6,7 +6,7 @@ export default async function registrationPage() {
         { cache: "no-store" })
     const users = await res.json()
 
-    return <div className="p-5">
+    return <div className="">
         <RegistrationLayout />
         <h1>Hello World</h1>
         <p>{new Date().toLocaleTimeString()}</p>
