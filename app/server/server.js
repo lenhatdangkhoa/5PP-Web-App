@@ -1,10 +1,12 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 
-app.listen("3000", () => {
-    console.log("Server started successfully on port 3000");
+app.use(cors())
+app.listen("3001", () => {
+    console.log("Server started successfully on port 3001");
 })
 
-app.get('/', (req, res) => {
-    res.status(200).send("Page in development");
+app.get('/test', (req, res) => {
+    res.status(201).send({"message" : "page in dev"});
 })

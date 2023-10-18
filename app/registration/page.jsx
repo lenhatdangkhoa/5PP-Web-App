@@ -1,6 +1,7 @@
 import React from "react"
 import RegistrationLayout from "../components/Registrations/RegistrationLayout"
 
+
 export default async function registrationPage() {
     const res = await fetch("https://jsonplaceholder.typicode.com/users",
         { cache: "no-store" })
