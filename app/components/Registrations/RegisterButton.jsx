@@ -10,5 +10,11 @@ export default function RegisterButton() {
             data => console.log(data)
         )
     })
-    return <button onClick={() => console.log("registering")}>Register</button>
+    return <div>
+        <form action="/register" method="POST">
+            <input type="text" className="border-2 border-indigo-600"></input>
+            <button type="submit" className="btn btn-secondary">Register</button>
+        </form>
+        </div>
+    
 }

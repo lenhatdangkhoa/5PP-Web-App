@@ -10,3 +10,8 @@ app.listen("3001", () => {
 app.get('/test', (req, res) => {
     res.status(201).send({"message" : "page in dev"});
 })
+
+app.post('/register', (req, res) => {
+    console.log("received")
+    res.status(200).send({"message" : "received register"})
+})
