@@ -41,7 +41,7 @@ export default function RegistrationLayout() {
                 placeholder="Password"></input>
             </div>
             <div>
-            <input type="submit" className="btn btn-secondary"/>
+            <input type="submit" className="btn btn-secondary" value="Register"/>
             </div>
         </form>
         </div>
