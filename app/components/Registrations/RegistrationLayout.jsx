@@ -35,7 +35,7 @@ export default function RegistrationLayout() {
                 placeholder="Username"></input>
             </div>
             <div>
-            <input type="text" className="border-2 border-indigo-600" 
+            <input type="password" className="border-2 border-indigo-600" 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"></input>

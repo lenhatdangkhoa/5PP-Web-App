@@ -3,6 +3,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
 require('dotenv').config()
 
 // Connecting to MongoDB
@@ -34,15 +35,22 @@ app.get('/test', (req, res) => {
 })
 
 app.post('/register', (req, res) => {
-    User.create({
-        username: 'test',
-        password: 'pass',
-        sat_score: 1400,
-        act_score: 30,
-        f_name: 'khoa',
-        l_name: 'le'
-    }).then( user => {
-        console.log(`Successfully created user ${user}`)
-    })    
+    bcrypt.hash(req.body.password, 8, (err, hash) => {
+        User.create({
+            username: req.body.username,
+            password: hash,
+            sat_score: 0,
+            act_score: 0,
+            f_name: '',
+            l_name: ''
+        }).then( user => {
+            console.log(`Successfully created user ${user}`)
+        })    
+        if (err) {
+            console.log(err);
+        }
+    });
+    
+   
     res.status(200).send({"message" : "received register"})
 })
