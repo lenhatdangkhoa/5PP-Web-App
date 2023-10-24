@@ -12,7 +12,6 @@ export default function RegistrationLayout() {
         setValidPassword(isPasswordValid(pass));
       }
     const isPasswordValid = (value) => {
-        // Implement your password validation logic here
         return (
           value.length >= 8
         //   /[A-Z]/.test(value) &&
