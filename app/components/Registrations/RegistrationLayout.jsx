@@ -4,7 +4,7 @@ import React, {useState, useEffect} from "react"
 export default function RegistrationLayout() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [validPassword, setValidPassword] = useState(true);
+    const [validPassword, setValidPassword] = useState(false);
 
     const is8Char = password.length >= 8
     const isUpper = /[A-Z]/.test(password)
@@ -20,7 +20,6 @@ export default function RegistrationLayout() {
         setValidPassword(isPasswordValid(pass));
       }
     function isPasswordValid(value) {
-        if (value.length == 0) return true
         return (
           value.length >= 8 && 
            /[A-Z]/.test(value) &&
@@ -67,7 +66,7 @@ export default function RegistrationLayout() {
             <input type="submit" className="btn btn-secondary" value="Register"/>
             </div>
         </form>
-        {!validPassword && (<div className="bg-slate-300 border border-slate-600 text-slate-800 px-4 py-3 rounded relative" role="alert">
+        <div className="bg-slate-300 border border-slate-600 text-slate-800 px-4 py-3 rounded relative" role="alert">
             <strong className="font-bold">Password requirements:</strong>
             <ul className="list-disc pl-5 mt-2">
                 <li className={is8Char ? "text-green-600" : ""}>Your password must be at least 8 characters long.</li>
@@ -76,7 +75,7 @@ export default function RegistrationLayout() {
                 <li className={hasNum ? "text-green-600" : ""}>Include at least one number.</li>
                 <li className={hasSpecial ? "text-green-600" : ""}>Include at least one special character (e.g., @, #, $, %).</li>
             </ul>
-        </div>)}
+        </div> 
         
         </div>
     
