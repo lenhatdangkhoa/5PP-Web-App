@@ -49,16 +49,16 @@ export default function RegistrationLayout() {
         }
     }
 
-    return <div className="flex justify-center bg-slate-200">
-        <form onSubmit={handleSubmit}>
+    return <div className="flex space-x-4 justify-center bg-slate-200">
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
             <div>
-            <input type="text" className="border-2 border-indigo-600" 
+            <input type="text" className="border-2 border-indigo-600 rounded-md" 
                 value={username} 
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Username"></input>
             </div>
             <div>
-            <input type="password" className="border-2 border-indigo-600" 
+            <input type="password" className="border-2 border-indigo-600 rounded-md" 
                 value={password}
                 onChange={handlePasswordChange}
                 placeholder="Password"></input>
