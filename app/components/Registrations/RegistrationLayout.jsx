@@ -4,7 +4,8 @@ import React, {useState, useEffect} from "react"
 export default function RegistrationLayout() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [validPassword, setValidPassword] = useState(false);
+    const [validPassword, setValidPassword] = useState(false)
+    const [onUsername, setOnUsername] = useState(true)
 
     const is8Char = password.length >= 8
     const isUpper = /[A-Z]/.test(password)
@@ -13,7 +14,12 @@ export default function RegistrationLayout() {
     const hasSpecial = /[!@#$%^&*]/.test(password)
 
 
-
+    function handleUsernameFocus() {
+        setOnUsername(true);
+    }
+    function handlePasswordFocus() {
+        setOnUsername(false);
+    }
     function handlePasswordChange(e) {
         const pass = e.target.value;
         setPassword(pass);
@@ -28,6 +34,9 @@ export default function RegistrationLayout() {
           /[!@#$%^&*]/.test(value)
         );
       };
+    
+    const containsA = /@/.test(username)
+    const containsDomain = /@[a-z].[a-z]/.test(username)
     async function handleSubmit(event) {
         event.preventDefault(); // prevent default page refreshing
         /*
@@ -54,19 +63,31 @@ export default function RegistrationLayout() {
             <input type="text" className="border-2 border-indigo-600 rounded-md" 
                 value={username} 
                 onChange={(e) => setUsername(e.target.value)}
+                onFocus={handleUsernameFocus}
                 placeholder="Username"></input>
             </div>
             <div>
             <input type="password" className="border-2 border-indigo-600 rounded-md" 
                 value={password}
                 onChange={handlePasswordChange}
+                onFocus={handlePasswordFocus}
                 placeholder="Password"></input>
             </div>
             <div>
-            <input type="submit" className="btn btn-secondary" value="Register"/>
+            {validPassword ? <input type="submit" className="btn btn-secondary" value="Register"/> :
+            <input type="submit" className="btn btn-secondary" value="Register" disabled/> }
             </div>
         </form>
-        <div className="bg-slate-300 border border-slate-600 text-slate-800 px-4 py-3 rounded relative" role="alert">
+        {onUsername ?
+            (<div className="bg-slate-300 border border-slate-600 text-slate-800 px-4 py-3 rounded relative" role="alert">
+            <strong className="font-bold">Username requirements:</strong>
+            <ul className="list-disc pl-5 mt-2">
+                <li className={containsA ? "text-green-600" : ""}>Your username must contains one @</li>
+                <li className={isUpper ? "text-green-600" : ""}>Your username must have a domain</li>
+                <li className={isLower ? "text-green-600" : ""}>Your username must have a name before @</li>
+            </ul>
+        </div>) :
+            (<div className="bg-slate-300 border border-slate-600 text-slate-800 px-4 py-3 rounded relative" role="alert">
             <strong className="font-bold">Password requirements:</strong>
             <ul className="list-disc pl-5 mt-2">
                 <li className={is8Char ? "text-green-600" : ""}>Your password must be at least 8 characters long.</li>
@@ -75,7 +96,8 @@ export default function RegistrationLayout() {
                 <li className={hasNum ? "text-green-600" : ""}>Include at least one number.</li>
                 <li className={hasSpecial ? "text-green-600" : ""}>Include at least one special character (e.g., @, #, $, %).</li>
             </ul>
-        </div> 
+        </div> )
+        }
         
         </div>
     
