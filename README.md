@@ -3,10 +3,10 @@
 This is a web application for students to track their progress on SAT/ACT subjects such as **math**, **science**, and  **reading/writing**.
 ## Work in Progress
 - Registration/Login Page: 
-    - Authorization and Authentication 
-    - Server and Client Side Communication
-    - Password Hashing with salt
-    - Connecting to MongoDB
+    - Authorization and Authentication ✓
+    - Server and Client Side Communication ✓
+    - Password Hashing with salt ✓
+    - Connecting to MongoDB ✓
 - Landing Page:
     - Graph Visualization
     - Client's Side Routing
