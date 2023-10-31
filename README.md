@@ -13,6 +13,9 @@ This is a web application for students to track their progress on SAT/ACT subjec
 - Profile Configuration:
     - Personal Info: name, age, school, etc.
     - Picture Upload: Find a way to store that into MongoDB
-
+- Main page:
+    - Graph Visualization
+    - A list of topics
+    - Upload test scores
 ## Tech Stack
 Next.js, MongoDB, Express.js, Node.js, Chart.js, React.js, Bootstrap.
