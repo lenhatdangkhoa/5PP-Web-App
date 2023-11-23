@@ -18,4 +18,4 @@ This is a web application for students to track their progress on SAT/ACT subjec
     - A list of topics
     - Upload test scores
 ## Tech Stack
-Next.js, MongoDB, Express.js, Node.js, Chart.js, React.js, Bootstrap.
+Next.js, MongoDB, Express.js, Node.js, Chart.js, React.js, Tailwind.
